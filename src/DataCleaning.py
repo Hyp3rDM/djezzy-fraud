@@ -32,5 +32,8 @@ non_fraud.cell_id = non_fraud.cell_id.fillna(method='ffill')
 non_fraud.MU_HANDSET_DUAL_SIM = non_fraud.MU_HANDSET_DUAL_SIM.fillna(method='ffill')
 non_fraud.MU_HANDSET_MOBILE_TECH = non_fraud.MU_HANDSET_MOBILE_TECH.fillna(method='ffill')
 
+fraud.drop_duplicates(inplace=True)
+non_fraud.drop_duplicates(inplace=True)
+
 fraud.sort_values(by=['Charging_Tm']).to_csv("../data/processed/1-DataCleaning/fraud.csv", index=False)
 non_fraud.sort_values(by=['Charging_Tm']).to_csv("../data/processed/1-DataCleaning/non_fraud.csv", index=False)
